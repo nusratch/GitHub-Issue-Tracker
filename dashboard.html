@@ -3,57 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
+<title>GitHub Issues Tracker</title>
 
-<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body class="bg-base-200">
 
-<div class="navbar bg-base-100  px-6">
+<div class="navbar bg-base-100 border-b px-6">
 
 <div class="flex-1 flex items-center gap-2">
-<img src="assets/github-logo.png" class="w-6">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" class="w-6">
 <h1 class="font-semibold text-lg">GitHub Issues Tracker</h1>
-
 </div>
-
 
 <div class="flex items-center gap-3">
 
-<input type="text" placeholder="Search issues..."class="input input-bordered w-48 md:w-72"/>
-<button class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Issue</button>
+<input id="searchInput"
+type="text"
+placeholder="Search issues..."
+class="input input-bordered w-48 md:w-72">
+
+<button class="btn btn-primary">
+<i class="fa-solid fa-plus mr-1"></i> New Issue
+</button>
 
 </div>
 
 </div>
-
 
 <div class="max-w-7xl mx-auto mt-8 px-4">
 
-<div class="p-4 rounded-lg">
+<div class="flex gap-3 mb-6">
 
-<div class="flex gap-3">
+<button class="btn btn-primary tab-btn" data-status="all">All</button>
 
-<button id="allTab" class="btn btn-primary tab-btn">
-All
-</button>
+<button class="btn tab-btn" data-status="open">Open</button>
 
-<button id="openTab" class="btn tab-btn">
+<button class="btn tab-btn" data-status="closed">Closed</button>
+
+</div>
+
+<div class="bg-base-100 p-5 rounded-lg shadow flex justify-between items-center">
+
+<div class="flex items-center gap-3">
+
+<div class="bg-primary/10 p-3 rounded-full">
+<i class="fa-solid fa-globe text-primary"></i>
+</div>
+
+<div>
+<h2 class="text-lg font-bold">
+<span id="issueCount">0</span> Issues
+</h2>
+
+<p class="text-sm text-gray-500">
+Track and manage your project issues
+</p>
+</div>
+
+</div>
+
+<div class="flex gap-6 text-sm">
+
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 bg-green-500 rounded-full"></span>
 Open
-</button>
+</div>
 
-<button id="closedTab" class="btn tab-btn">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 bg-purple-500 rounded-full"></span>
 Closed
-</button>
-
 </div>
 
 </div>
 
 </div>
+
+<div id="loading" class="text-center mt-10 hidden">
+<span class="loading loading-spinner loading-lg"></span>
+</div>
+
+<div id="issueContainer"
+class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+</div>
+
+</div>
+
+<script src="dashboard.js"></script>
 
 </body>
 </html>
