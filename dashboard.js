@@ -5,7 +5,6 @@ const searchInput = document.getElementById("searchInput");
 
 let allIssues = [];
 
-
 async function loadIssues(){
 
 loading.classList.remove("hidden");
@@ -20,7 +19,6 @@ displayIssues(allIssues);
 loading.classList.add("hidden");
 
 }
-
 
 function displayIssues(issues){
 
@@ -44,7 +42,6 @@ issue.priority === "HIGH"
 ? "bg-yellow-100 text-yellow-700"
 : "bg-blue-100 text-blue-600";
 
-
 const card = document.createElement("div");
 
 card.className = `card bg-base-100 shadow ${border}`;
@@ -55,7 +52,7 @@ card.innerHTML = `
 <div class="flex justify-between items-start">
 
 <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-<i class="fa-regular fa-circle text-green-600"></i>
+<img src="assets/open-status.png" class="w-5 h-5">
 </div>
 
 <span class="px-3 py-1 text-xs rounded-full font-semibold ${priorityColor}">
@@ -64,16 +61,13 @@ ${issue.priority}
 
 </div>
 
-
 <h2 class="card-title text-base font-semibold mt-2 cursor-pointer issue-title">
 ${issue.title}
 </h2>
 
-
 <p class="text-sm text-gray-500">
 ${issue.description}
 </p>
-
 
 <div class="flex gap-3 mt-3 text-xs">
 
@@ -86,7 +80,6 @@ ${issue.description}
 </span>
 
 </div>
-
 
 <div class="mt-4 text-xs text-gray-400">
 
@@ -108,7 +101,6 @@ container.appendChild(card);
 });
 
 }
-
 
 async function loadSingleIssue(id){
 
@@ -132,8 +124,6 @@ Label: ${issue.label}`;
 issueModal.showModal();
 
 }
-
-
 
 document.querySelectorAll(".tab-btn").forEach(btn => {
 
@@ -163,8 +153,6 @@ displayIssues(filtered);
 
 });
 
-
-
 searchInput.addEventListener("input", async (e) => {
 
 const text = e.target.value;
@@ -183,6 +171,5 @@ const data = await res.json();
 displayIssues(data.data);
 
 });
-
 
 loadIssues();
