@@ -42,9 +42,7 @@ class="input input-bordered w-48 md:w-72">
 <div class="flex gap-3 mb-6">
 
 <button class="btn btn-primary tab-btn" data-status="all">All</button>
-
 <button class="btn tab-btn" data-status="open">Open</button>
-
 <button class="btn tab-btn" data-status="closed">Closed</button>
 
 </div>
@@ -94,6 +92,24 @@ class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
 </div>
 
 </div>
+
+<dialog id="issueModal" class="modal">
+<div class="modal-box">
+
+<h3 id="modalTitle" class="font-bold text-lg"></h3>
+
+<p id="modalDescription" class="py-4"></p>
+
+<p id="modalDetails"></p>
+
+<div class="modal-action">
+<form method="dialog">
+<button class="btn">Close</button>
+</form>
+</div>
+
+</div>
+</dialog>
 
 <script src="dashboard.js"></script>
 
